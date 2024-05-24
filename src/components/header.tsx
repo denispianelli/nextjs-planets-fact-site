@@ -1,6 +1,6 @@
 import { League_Spartan } from 'next/font/google';
 import Link from 'next/link';
-import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
+import { Sheet, SheetClose, SheetContent, SheetTrigger } from './ui/sheet';
 import { Menu } from 'lucide-react';
 import { Button } from './ui/button';
 import Image from 'next/image';
@@ -19,8 +19,8 @@ export default function Header() {
     { href: '/neptune', label: 'Neptune', color: '#497efa' },
   ];
   return (
-    <header className="flex h-[85px] items-center justify-between border-b border-white/20 px-[24px] uppercase">
-      <h2 className="text-h2">the planets</h2>
+    <header className="flex h-[68px] items-center justify-between border-b border-white/20 px-[24px] uppercase">
+      <h2 className="text-h2 text-[28px]">the planets</h2>
       <ul
         className={`${leagueSpartan.className} text-h3 hidden gap-[33px] font-bold opacity-75 md:flex`}
       >
@@ -62,23 +62,27 @@ export default function Header() {
         >
           <ul className="flex flex-col gap-4">
             {links.map((link) => (
-              <Link
-                className="grid grid-cols-2 items-center border-b border-white/10 py-4 last-of-type:border-none"
-                key={link.href}
-                href={link.href}
-              >
-                <div className="flex gap-4">
-                  <div className={`h-5 w-5 rounded-full bg-[${link.color}]`} />
-                  <li>{link.label}</li>
-                </div>
-                <Image
-                  src={'/assets/icon-chevron.svg'}
-                  alt="chevron"
-                  width={4}
-                  height={8}
-                  className="justify-self-end"
-                />
-              </Link>
+              <SheetClose key={link.href} asChild>
+                <Link
+                  className="grid grid-cols-2 items-center border-b border-white/10 py-4 last-of-type:border-none"
+                  key={link.href}
+                  href={link.href}
+                >
+                  <div className="flex gap-4">
+                    <div
+                      className={`h-5 w-5 rounded-full bg-[${link.color}]`}
+                    />
+                    <li>{link.label}</li>
+                  </div>
+                  <Image
+                    src={'/assets/icon-chevron.svg'}
+                    alt="chevron"
+                    width={4}
+                    height={8}
+                    className="justify-self-end"
+                  />
+                </Link>
+              </SheetClose>
             ))}
           </ul>
         </SheetContent>
