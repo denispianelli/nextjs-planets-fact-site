@@ -11,20 +11,20 @@ const leagueSpartan = League_Spartan({ subsets: ['latin'] });
 
 export default function Page() {
   const [activeTab, setActiveTab] = useState('overview');
-  const [activeImage, setActiveImage] = useState(data[0].images.planet);
+  const [activeImage, setActiveImage] = useState(data[1].images.planet);
 
   function handleTabChange(tab: string) {
     setActiveTab(tab);
 
     switch (tab) {
       case 'overview':
-        setActiveImage(data[0].images.planet);
+        setActiveImage(data[1].images.planet);
         break;
       case 'structure':
-        setActiveImage(data[0].images.internal);
+        setActiveImage(data[1].images.internal);
         break;
       case 'geology':
-        setActiveImage(data[0].images.planet);
+        setActiveImage(data[1].images.planet);
         break;
       default:
         break;
@@ -76,13 +76,13 @@ export default function Page() {
         <div className="relative mx-auto  px-[132px] py-[95px]">
           <Image
             src={activeImage}
-            alt={data[0].name}
+            alt={data[1].name}
             width={111}
             height={111}
           />
           <Image
-            src={data[0].images.geology}
-            alt={`${data[0].name} Geology`}
+            src={data[1].images.geology}
+            alt={`${data[1].name} Geology`}
             width={80}
             height={80}
             className={clsx(
@@ -94,11 +94,11 @@ export default function Page() {
           />
         </div>
         <div className="mx-[24px]">
-          <h1 className="mb-4 text-[40px] uppercase">{data[0].name}</h1>
+          <h1 className="mb-4 text-[40px] uppercase">{data[1].name}</h1>
           <p className={`${leagueSpartan.className} text-sm text-white/70`}>
-            {activeTab === 'overview' && data[0].overview.content}
-            {activeTab === 'structure' && data[0].structure.content}
-            {activeTab === 'geology' && data[0].geology.content}
+            {activeTab === 'overview' && data[1].overview.content}
+            {activeTab === 'structure' && data[1].structure.content}
+            {activeTab === 'geology' && data[1].geology.content}
           </p>
           <p
             className={`${leagueSpartan.className} mt-[32px] flex items-center justify-center text-white/50`}
@@ -106,7 +106,7 @@ export default function Page() {
             Source :&nbsp;{' '}
             <Link
               className="flex items-center gap-1 font-bold underline"
-              href={data[0][activeTab]?.source}
+              href={data[1][activeTab]?.source}
             >
               Wikipedia{' '}
               <Image
@@ -125,7 +125,7 @@ export default function Page() {
             >
               rotation time
             </h4>
-            <p className="text-[20px]">{data[0].rotation}</p>
+            <p className="text-[20px]">{data[1].rotation}</p>
           </div>
           <div className="mx-[24px] flex justify-between border border-white/20 px-6 py-2">
             <h4
@@ -133,7 +133,7 @@ export default function Page() {
             >
               revolution time
             </h4>{' '}
-            <p className="text-[20px]">{data[0].revolution}</p>
+            <p className="text-[20px]">{data[1].revolution}</p>
           </div>
           <div className="mx-[24px] flex justify-between border border-white/20 px-6 py-2">
             <h4
@@ -141,7 +141,7 @@ export default function Page() {
             >
               radius
             </h4>{' '}
-            <p className="text-[20px]">{data[0].radius}</p>
+            <p className="text-[20px]">{data[1].radius}</p>
           </div>
           <div className="mx-[24px] flex justify-between border border-white/20 px-6 py-2">
             <h4
@@ -149,7 +149,7 @@ export default function Page() {
             >
               average temp.
             </h4>{' '}
-            <p className="text-[20px]">{data[0].temperature}</p>
+            <p className="text-[20px]">{data[1].temperature}</p>
           </div>
         </div>
       </article>
