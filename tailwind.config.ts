@@ -39,11 +39,19 @@ const config = {
             letterSpacing: '2.6px',
           },
         ],
+        h4: [
+          '11px',
+          {
+            lineHeight: '25px',
+            letterSpacing: '1px',
+          },
+        ],
       },
       backgroundImage: {
         'main-background': '(var(--background-image))',
       },
       colors: {
+        bostonBlue: 'hsl(var(--boston-blue))',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
