@@ -106,7 +106,7 @@ export default function Mars() {
             width={windowWidth < 1024 ? 80 : 163}
             height={windowWidth < 1024 ? 98 : 199}
             className={clsx(
-              'fixed left-[50%] top-[350px] -translate-x-1/2 -translate-y-1/2 transform-gpu md:top-[470px] lg:left-[50%] lg:top-[650px] lg:-translate-x-[156%]',
+              'relative left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 transform-gpu',
               {
                 hidden: tab !== 'geology',
               },

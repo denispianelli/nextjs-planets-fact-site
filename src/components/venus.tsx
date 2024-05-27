@@ -57,7 +57,7 @@ export default function Venus() {
   }
 
   return (
-    <main className="mb-4 justify-center lg:flex">
+    <main className="mb-4 max-h-[calc(100vh-85px)] justify-center lg:flex">
       <header className="border-b border-white/20 px-6 text-h3 md:hidden">
         <ul
           className={`${leagueSpartan.className} grid grid-cols-3 gap-4 text-[9px] font-bold leading-none [&>*]:uppercase [&>button]:py-4`}
@@ -106,7 +106,7 @@ export default function Venus() {
             width={windowWidth < 1024 ? 80 : 163}
             height={windowWidth < 1024 ? 98 : 199}
             className={clsx(
-              'fixed left-[50%] top-[350px] -translate-x-1/2 -translate-y-1/2 transform-gpu md:top-[470px] lg:left-[50%] lg:top-[650px] lg:-translate-x-[156%]',
+              'relative left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 transform-gpu',
               {
                 hidden: tab !== 'geology',
               },
