@@ -1,0 +1,63 @@
+.mercury {
+  background-color: #def4fc;
+}
+
+.mercury-hover:hover {
+  border-color: #419ebb;
+}
+
+.venus {
+  background-color: #f7cc7f;
+}
+
+.venus-hover:hover {
+  border-color: #eda249;
+}
+
+.earth {
+  background-color: #545bfe;
+}
+
+.earth-hover:hover {
+  border-color: #6f2ed6;
+}
+
+.mars {
+  background-color: #ff6a45;
+}
+
+.mars-hover:hover {
+  border-color: #d14c32;
+}
+
+.jupiter {
+  background-color: #ecad7a;
+}
+
+.jupiter-hover:hover {
+  border-color: #d83a34;
+}
+
+.saturn {
+  background-color: #fccb6b;
+}
+
+.saturn-hover:hover {
+  border-color: #cd5120;
+}
+
+.uranus {
+  background-color: #65f0d5;
+}
+
+.uranus-hover:hover {
+  border-color: #1ec2a4;
+}
+
+.neptune {
+  background-color: #497efa;
+}
+
+.neptune-hover:hover {
+  border-color: #2d68f0;
+}

@@ -4,61 +4,53 @@ import { Sheet, SheetClose, SheetContent, SheetTrigger } from './ui/sheet';
 import { Menu } from 'lucide-react';
 import { Button } from './ui/button';
 import Image from 'next/image';
+import styles from '@/app/ui/home.module.css';
+const data = require('@/lib/data.json');
 
 const leagueSpartan = League_Spartan({ subsets: ['latin'] });
 
 export default function Header() {
-  const links = [
-    { href: '/mercury', label: 'Mercury', color: '#def4fc' },
-    { href: '/venus', label: 'Venus', color: '#f7cc7f' },
-    { href: '/earth', label: 'Earth', color: '#545bfe' },
-    { href: '/mars', label: 'Mars', color: '#ff6a45' },
-    { href: '/jupiter', label: 'Jupiter', color: '#ecad7a' },
-    { href: '/saturn', label: 'Saturn', color: '#fccb6b' },
-    { href: '/uranus', label: 'Uranus', color: '#65f0d5' },
-    { href: '/neptune', label: 'Neptune', color: '#497efa' },
-  ];
+  const links: Link[] = data.map((planet: { name: string }) => ({
+    href: `/${planet.name.toLowerCase()}`,
+    label: planet.name,
+    color: planet.name.toLowerCase(),
+    hoverColor: `${planet.name.toLowerCase()}-hover`,
+  }));
+
+  interface Link {
+    href: string;
+    label: string;
+    color: string;
+    hoverColor: string;
+  }
+
   return (
-    <header className="flex h-[68px] items-center justify-between border-b border-white/20 px-[24px] uppercase">
-      <h2 className="text-h2 text-[28px]">the planets</h2>
+    <header className="flex h-[68px] items-center justify-between border-b border-white/20 px-[24px] uppercase md:h-[159px] md:flex-col md:justify-around lg:h-[85px] lg:flex-row lg:justify-between">
+      <h2 className="text-[28px]">the planets</h2>
       <ul
-        className={`${leagueSpartan.className} text-h3 hidden gap-[33px] font-bold opacity-75 md:flex`}
+        className={`${leagueSpartan.className} hidden gap-[33px] text-h3 font-bold opacity-75 md:flex`}
       >
-        <Link href="/mercury">
-          <li>Mercury</li>
-        </Link>
-        <Link href="/venus">
-          <li>Venus</li>
-        </Link>
-        <Link href="/earth">
-          <li>Earth</li>
-        </Link>
-        <Link href="/mars">
-          <li>Mars</li>
-        </Link>
-        <Link href="/jupiter">
-          <li>Jupiter</li>
-        </Link>
-        <Link href="/saturn">
-          <li>Saturn</li>
-        </Link>
-        <Link href="/uranus">
-          <li>Uranus</li>
-        </Link>
-        <Link href="/neptune">
-          <li>Neptune</li>
-        </Link>
+        {links.map((link) => (
+          <li key={link.href}>
+            <Link
+              className={`${styles[link.hoverColor]} py-8 hover:border-t-4`}
+              href={link.href}
+            >
+              {link.label}
+            </Link>
+          </li>
+        ))}
       </ul>
       <Sheet>
         <SheetTrigger asChild>
-          <Button className="bg-transparent p-0 hover:bg-transparent hover:text-[#979797]  md:hidden">
+          <Button className="bg-transparent p-0 hover:bg-transparent hover:text-[#979797] md:hidden">
             <Menu />
             <span className="sr-only">Toggle navigation menu</span>
           </Button>
         </SheetTrigger>
         <SheetContent
           side={'right'}
-          className={`${leagueSpartan.className} text-h3  mt-[85px] w-full border-none font-bold uppercase`}
+          className={`${leagueSpartan.className} mt-[85px]  w-full border-none text-h3 font-bold uppercase`}
         >
           <ul className="flex flex-col gap-4">
             {links.map((link) => (
@@ -70,7 +62,7 @@ export default function Header() {
                 >
                   <div className="flex gap-4">
                     <div
-                      className={`h-5 w-5 rounded-full bg-[${link.color}]`}
+                      className={`${styles[link.color]} h-5 w-5 rounded-full `}
                     />
                     <li>{link.label}</li>
                   </div>
