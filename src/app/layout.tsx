@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Antonio } from 'next/font/google';
 
 import './globals.css';
-import Header from '@/components/header';
+import Header from '@/components/page-header';
 
 const antonio = Antonio({ subsets: ['latin'] });
 
