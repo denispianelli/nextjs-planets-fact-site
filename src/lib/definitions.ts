@@ -12,6 +12,7 @@ export type Planet = {
     content: string;
     source: string;
   };
+  [key: string]: any;
   rotation: string;
   revolution: string;
   radius: string;
@@ -23,4 +24,10 @@ export type Planet = {
     width: number;
     height: number;
   };
+};
+
+export type PlanetSizes = {
+  small: number;
+  medium: number;
+  large: number;
 };
