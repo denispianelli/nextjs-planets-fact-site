@@ -46,7 +46,7 @@ const PlanetTemplate: React.FC<PlanetTemplateProps> = ({
 
         <div className="mx-[24px] md:mx-[40px] md:grid md:grid-cols-2 lg:mx-0 lg:flex lg:w-[350px] lg:flex-col lg:justify-center lg:justify-self-end">
           <PlanetDescription planetData={planetData} tab={tab!} />
-          <PlanetTab planet="mercury" />
+          <PlanetTab planet={planetName} />
         </div>
 
         <PlanetInfos planetData={planetData} />

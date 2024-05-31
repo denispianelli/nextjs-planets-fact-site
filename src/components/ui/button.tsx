@@ -5,6 +5,8 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 import clsx from 'clsx';
 
+import styles from '@/app/ui/home.module.css';
+
 const buttonVariants = cva(
   'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
   {
@@ -56,28 +58,19 @@ Button.displayName = 'Button';
 
 interface HeaderTabButtonProps {
   tab: string;
-  currentTab: string | null;
-  planet: string;
   onClick: (tab: string) => void;
   children: React.ReactNode;
+  className?: string;
 }
 
 const HeaderTabButton: React.FC<HeaderTabButtonProps> = ({
   tab,
-  currentTab,
-  planet,
   onClick,
   children,
+  className,
 }) => {
   return (
-    <button
-      onClick={() => onClick(tab)}
-      type="button"
-      className={clsx('border-t-4 border-t-transparent', {
-        'border-b-4 border-b-transparent text-white/50': currentTab !== tab,
-        [`border-b-4 border-${planet}`]: currentTab === tab,
-      })}
-    >
+    <button className={className} onClick={() => onClick(tab)} type="button">
       {children}
     </button>
   );
@@ -98,6 +91,7 @@ const TabButton: React.FC<TabButtonProps> = ({
   planet,
   index,
 }) => {
+  const planetBg = `${planet}-bg`;
   return (
     <button
       onClick={onClick}
@@ -105,7 +99,7 @@ const TabButton: React.FC<TabButtonProps> = ({
       className={clsx(
         'h-[40px] w-[281px] border border-white/20 text-left lg:h-[48px] lg:w-[350px]',
         {
-          [`bg-${planet}`]: isActive,
+          [styles[planetBg]]: isActive,
           'hover:bg-[#313148]': !isActive,
         },
       )}

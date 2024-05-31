@@ -12,6 +12,7 @@ const PlanetTab: React.FC<{ planet: string }> = ({ planet }) => {
   const { replace } = useRouter();
 
   const tab = searchParams.get('tab');
+  console.log('planet =', planet);
 
   const handleTabClick = (tab: string) => {
     replace(`${pathname}?tab=${tab}`);

@@ -1,5 +1,9 @@
+'use client';
+
 import { Planet, PlanetSizes } from '@/lib/definitions';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 export interface PlanetDisplayProps {
   planetSizes: PlanetSizes;
@@ -12,6 +16,11 @@ const PlanetDisplay: React.FC<PlanetDisplayProps> = ({
   planetData,
   tab,
 }) => {
+  const [mounted, setMounted] = useState(false);
+
+  const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
+  const isTablet = useMediaQuery({ query: '(max-width: 1024px)' });
+
   const isOverview = tab === 'overview' || tab === 'geology';
   const isStructure = tab === 'structure';
   const isGeology = tab === 'geology';
@@ -22,17 +31,25 @@ const PlanetDisplay: React.FC<PlanetDisplayProps> = ({
 
   const planetName = planetData.name.toLowerCase();
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <div className="relative mx-auto flex h-[305px] w-full items-center justify-center md:h-[460px] lg:h-[700px]" />
+    );
+  }
+
   return (
     <div className="relative mx-auto flex h-[305px] w-full items-center justify-center md:h-[460px] lg:h-[700px]">
-      <div
-        className={`relative grid  h-[${sm}px] w-[${sm}px] md:h-[${md}px] md:w-[${md}px] lg:w-[${lg}px] items-end lg:h-[${lg}px]`}
-      >
+      <div className={`relative grid`}>
         {isOverview && (
           <Image
             src={`/assets/planet-${planetName}.svg`}
             alt={`Planet ${planetData.name}`}
-            fill
-            sizes="100%"
+            width={isMobile ? `${sm}` : isTablet ? `${md}` : `${lg}`}
+            height={isMobile ? `${sm}` : isTablet ? `${md}` : `${lg}`}
             priority
           />
         )}
@@ -40,8 +57,8 @@ const PlanetDisplay: React.FC<PlanetDisplayProps> = ({
           <Image
             src={`/assets/planet-${planetName}-internal.svg`}
             alt={`Planet ${planetData.name}`}
-            fill
-            sizes="100%"
+            width={isMobile ? `${sm}` : isTablet ? `${md}` : `${lg}`}
+            height={isMobile ? `${sm}` : isTablet ? `${md}` : `${lg}`}
           />
         )}
       </div>

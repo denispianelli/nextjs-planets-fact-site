@@ -2,12 +2,28 @@
   background-color: #def4fc;
 }
 
+.mercury-bg {
+  background-color: #419ebb;
+}
+
+.mercury-border {
+  border-bottom: 4px solid #419ebb;
+}
+
 .mercury-hover:hover {
   border-color: #419ebb;
 }
 
 .venus {
   background-color: #f7cc7f;
+}
+
+.venus-bg {
+  background-color: #eda249;
+}
+
+.venus-border {
+  border-bottom: 4px solid #eda249;
 }
 
 .venus-hover:hover {
@@ -18,12 +34,28 @@
   background-color: #545bfe;
 }
 
+.earth-bg {
+  background-color: #2d68f0;
+}
+
+.earth-border {
+  border-bottom: 4px solid #2d68f0;
+}
+
 .earth-hover:hover {
   border-color: #6f2ed6;
 }
 
 .mars {
   background-color: #ff6a45;
+}
+
+.mars-bg {
+  background-color: #d14c32;
+}
+
+.mars-border {
+  border-bottom: 4px solid #d14c32;
 }
 
 .mars-hover:hover {
@@ -34,12 +66,28 @@
   background-color: #ecad7a;
 }
 
+.jupiter-bg {
+  background-color: #d83a34;
+}
+
+.jupiter-border {
+  border-bottom: 4px solid #d83a34;
+}
+
 .jupiter-hover:hover {
   border-color: #d83a34;
 }
 
 .saturn {
   background-color: #fccb6b;
+}
+
+.saturn-bg {
+  background-color: #cd5120;
+}
+
+.saturn-border {
+  border-bottom: 4px solid #cd5120;
 }
 
 .saturn-hover:hover {
@@ -50,12 +98,28 @@
   background-color: #65f0d5;
 }
 
+.uranus-bg {
+  background-color: #1ec2a4;
+}
+
+.uranus-border {
+  border-bottom: 4px solid #1ec2a4;
+}
+
 .uranus-hover:hover {
   border-color: #1ec2a4;
 }
 
 .neptune {
   background-color: #497efa;
+}
+
+.neptune-bg {
+  background-color: #2d68f0;
+}
+
+.neptune-border {
+  border-bottom: 4px solid #2d68f0;
 }
 
 .neptune-hover:hover {
